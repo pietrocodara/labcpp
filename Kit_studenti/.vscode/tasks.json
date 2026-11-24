@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${fileDirname}",
+        "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] }
+    },
+    "tasks": [
+        {
+            "label": "Compila",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17", "-O2", "-Wall", "-Wextra", "-g",
+                "${file}", "-o", "${fileBasenameNoExtension}.exe"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "clear": true },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Compila ed esegui",
+            "type": "shell",
+            "command": "${fileBasenameNoExtension}.exe",
+            "dependsOn": "Compila",
+            "presentation": { "reveal": "always", "focus": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Compila ed esegui con input.txt",
+            "type": "shell",
+            "command": "${fileBasenameNoExtension}.exe < input.txt",
+            "dependsOn": "Compila",
+            "presentation": { "reveal": "always", "focus": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Compila in modalita' debug (controlli sui vector)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17", "-O0", "-Wall", "-Wextra", "-g", "-D_GLIBCXX_DEBUG",
+                "${file}", "-o", "${fileBasenameNoExtension}.exe"
+            ],
+            "presentation": { "reveal": "always", "clear": true },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

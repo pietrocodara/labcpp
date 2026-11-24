@@ -1,0 +1,17 @@
+/*
+!/.gitignore
+
+!/Dispense/
+/Dispense/*
+!/Dispense/00_setup_ambiente.md
+
+!/Kit_studenti/
+/Kit_studenti/*
+!/Kit_studenti/.vscode/
+
+!/Esempi/
+/Esempi/*
+!/Esempi/L1/
+/Esempi/L1/*
+!/Esempi/L1/01_ciao.cpp
+!/Esempi/L1/02_somma.cpp
